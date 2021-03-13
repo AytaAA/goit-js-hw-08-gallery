@@ -15,6 +15,7 @@ galleryContainer.addEventListener("click", onImageClick)
 closeModalButton.addEventListener("click", closeModal)
 modalOverlay.addEventListener("click", closeModal)
 window.addEventListener("keyup", listenerForEscape)
+window.addEventListener("keydown", onPressArrow)
 
 function createGalleryMarkUp(images) {
     return images
@@ -40,6 +41,7 @@ function createGalleryMarkUp(images) {
 function onImageClick(e) {
     e.preventDefault()
     let image = e.target
+    currentIndex = Number(e.target.dataset.index)
     if (!image.classList.contains("gallery__image")) {
         return
     }
@@ -72,5 +74,18 @@ function closeModal() {
 function listenerForEscape(e) {
     if (e.code === "Escape") {
         closeModal()
+    }
+}
+
+function onPressArrow(e) {
+    console.log(currentIndex)
+
+    if (e.key === "ArrowLeft" && currentIndex > 0) {
+        currentIndex -= 1
+        modalImage.src = images[currentIndex].original
+    }
+    if (e.key === "ArrowRight" && currentIndex < images.length - 1) {
+        currentIndex += 1
+        modalImage.src = images[currentIndex].original
     }
 }
