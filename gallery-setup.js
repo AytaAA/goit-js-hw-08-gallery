@@ -78,8 +78,6 @@ function listenerForEscape(e) {
 }
 
 function onPressArrow(e) {
-    console.log(currentIndex)
-
     if (e.key === "ArrowLeft" && currentIndex > 0) {
         currentIndex -= 1
         modalImage.src = images[currentIndex].original
