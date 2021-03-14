@@ -80,15 +80,12 @@ function listenerForEscape(e) {
 function onPressArrow(e) {
     if (e.key === "ArrowLeft" && currentIndex > 0) {
         currentIndex -= 1
-        modalImage.src = images[currentIndex].original
     } else if (e.key === "ArrowRight" && currentIndex < images.length - 1) {
         currentIndex += 1
-        modalImage.src = images[currentIndex].original
     } else if (e.key === "ArrowLeft" && currentIndex === 0) {
         currentIndex = images.length - 1
-        modalImage.src = images[currentIndex].original
     } else if (e.key === "ArrowRight" && currentIndex === images.length - 1) {
         currentIndex = 0
-        modalImage.src = images[currentIndex].original
     }
+    modalImage.src = images[currentIndex].original
 }
